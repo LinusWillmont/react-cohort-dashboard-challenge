@@ -37,13 +37,13 @@ export const CommentsList = ({ postId }) => {
   }, [getComments]);
 
   return (
-    <div>
+    <div className="flex flex-col gap-5 content-start">
       {!comments ? (
         <p>Loading comments</p>
       ) : (
         <>
           {previewView ? (
-            <button onClick={stopPreviewView} className="see-previous-comments">
+            <button onClick={stopPreviewView} className="text-grey w-fit">
               See previous comments
             </button>
           ) : null}

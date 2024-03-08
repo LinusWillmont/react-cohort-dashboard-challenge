@@ -34,17 +34,17 @@ export const CreatePost = ({ getPosts }) => {
 	};
 
 	return (
-		<div className="card create-post-item">
+		<div className="p-5 bg-white rounded-xl flex content-center"> 
 			<ProfileIcon user={user} />
-			<form action="" onSubmit={handleSubmit}>
+			<form className="flex flex-1" action="" onSubmit={handleSubmit}>
 				<input
 					type="text"
 					placeholder="What's on your mind?"
-					className="form-text-input"
+					className="bg-secondary w-full h-full rounded-lg mx-3 px-3"
 					value={formData}
 					onChange={handleInput}
 				/>
-				<button className="post-submit-button">Post</button>
+				<button className="h-full w-48 bg-main text-white rounded-lg ">Post</button>
 			</form>
 		</div>
 	);

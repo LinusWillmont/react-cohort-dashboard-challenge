@@ -35,13 +35,13 @@ export const CreateComment = ({ postId, getComments }) => {
 	};
 
 	return (
-		<div className="create-post-item">
+		<div className="flex">
 			<ProfileIcon user={user} />
-			<form className="form-message" onSubmit={handleSubmit}>
-				<input
+			<form className="flex bg-secondary rounded-lg ml-3 flex-1" onSubmit={handleSubmit}>
+				<input 
+					className="px-3 bg-secondary rounded-lg w-full"
 					type="text"
 					placeholder="Add a comment..."
-					className="form-text-input"
 					value={formData}
 					onChange={handleInput}
 				/>

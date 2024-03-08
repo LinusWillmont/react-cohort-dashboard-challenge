@@ -30,13 +30,13 @@ export const Comment = ({ comment, handleDeleteComment }) => {
 	return !commentOwner ? (
 		<p>loading comment owner</p>
 	) : (
-		<div className="comment">
+		<div className="flex gap-5   w-fit">
 			<ProfileIcon user={commentOwner} />
-			<div className="comment-content">
-				<h2>{`${commentOwner.firstName} ${commentOwner.lastName}`}</h2>
-				<p>{comment.content}</p>
-				<button onClick={handleEditComment}>Edit</button>
-				<button onClick={deletComment}>Delete</button>
+			<div className="bg-secondary rounded-lg p-2 px-5">
+				<h2 className="text-xl font-medium">{`${commentOwner.firstName} ${commentOwner.lastName}`}</h2>
+				<p className="mb-10">{comment.content}</p>
+				<button className="bg-main  text-white rounded-lg w-fit px-3 py-1" onClick={handleEditComment}>Edit</button>
+				<button className="bg-main  text-white rounded-lg w-fit px-3 py-1" onClick={deletComment}>Delete</button >
 			</div>
 		</div>
 	);

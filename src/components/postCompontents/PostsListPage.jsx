@@ -25,13 +25,13 @@ export const PostsListPage = () => {
 	};
 
 	return (
-		<main>
+		<div className="flex flex-col bg-secondary p-6 gap-3">
 			<CreatePost getPosts={getPosts} />
 			{posts.map((post) => {
 				return (
 					<Post key={post.id} post={post} handleDeletePost={handleDeletePost} />
 				);
 			})}
-		</main>
+		</div>
 	);
 };

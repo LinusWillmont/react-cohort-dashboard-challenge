@@ -33,20 +33,20 @@ export const Post = ({ post, handleDeletePost }) => {
 		);
 	} else {
 		return (
-			<div className="card">
-				<div className="post border-bottom">
-					<div className="post-header">
+			<div className="bg-white rounded-xl p-6 flex gap-5 flex-col">
+				<div className="flex flex-col gap-5 border-b-2 border-bodyBackground">
+					<div className="flex gap-5">
 						<ProfileIcon user={postOwner} />
-						<div className="post-details">
-							<h2>{`${postOwner.firstName} ${postOwner.lastName}`}</h2>
-							<Link to={`../posts/${post.id}`}>{post.title}</Link>
+						<div className="flex flex-col justify-center">
+							<h2 className="text-xl font-medium text">{`${postOwner.firstName} ${postOwner.lastName}`}</h2>
+							<Link className="text-grey" to={`../posts/${post.id}`}>{post.title}</Link>
 						</div>
-						<div className="post-header-buttons">
-							<button onClick={handleEditPost}>Edit</button>
-							<button onClick={deletePost}>Delete</button>
+						<div className="ml-auto">
+							<button className="bg-main  text-white rounded-lg px-6 py-2" onClick={handleEditPost}>Edit</button>
+							<button className="bg-main  text-white rounded-lg px-6 py-2 ml-1" onClick={deletePost}>Delete</button>
 						</div>
 					</div>
-					<p>{post.content}</p>
+					<p className="mb-5">{post.content}</p>
 				</div>
 				<CommentsList postId={post.id} />
 			</div>

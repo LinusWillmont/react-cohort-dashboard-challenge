@@ -19,8 +19,8 @@ export const PostDetailPage = () => {
   return !post ? (
     <p>Loading</p>
   ) : (
-    <main>
+    <div className="p-6 bg-bodyBackground ">
       <Post post={post} handleDeletePost={handleDeletePost} />
-    </main>
+    </div>
   );
 };

@@ -6,54 +6,57 @@ import sendButton from "../../assets/send-icon48.png";
 import PropTypes from "prop-types";
 
 export const CreateComment = ({ postId, getComments }) => {
-	const user = useContext(LoggedInUserContext);
-	const [formData, setFormData] = useState("");
+  const user = useContext(LoggedInUserContext);
+  const [formData, setFormData] = useState("");
 
-	const postComment = () => {
-		return postRequest(`/post/${postId}/comment`, {
-			postId: postId,
-			content: formData,
-			contactId: user.id,
-		})
-			.then((data) => console.log("New comment", data))
-			.catch((error) => console.error("Failed to post comment", error));
-	};
+  const postComment = () => {
+    return postRequest(`/post/${postId}/comment`, {
+      postId: postId,
+      content: formData,
+      contactId: user.id,
+    })
+      .then((data) => console.log("New comment", data))
+      .catch((error) => console.error("Failed to post comment", error));
+  };
 
-	const handleInput = (event) => {
-		setFormData(event.target.value);
-	};
+  const handleInput = (event) => {
+    setFormData(event.target.value);
+  };
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-		if (!formData.length) return;
+    if (!formData.length) return;
 
-		postComment()
-			.then(() => getComments())
-			.then(setFormData(""))
-			.catch((error) => console.error(error));
-	};
+    postComment()
+      .then(() => getComments())
+      .then(setFormData(""))
+      .catch((error) => console.error(error));
+  };
 
-	return (
-		<div className="flex">
-			<ProfileIcon user={user} />
-			<form className="flex bg-secondary rounded-lg ml-3 flex-1" onSubmit={handleSubmit}>
-				<input 
-					className="px-3 bg-secondary rounded-lg w-full"
-					type="text"
-					placeholder="Add a comment..."
-					value={formData}
-					onChange={handleInput}
-				/>
-				<button className="message-post-button">
-					<img src={sendButton} alt="Send" />
-				</button>
-			</form>
-		</div>
-	);
+  return (
+    <div className="flex">
+      <ProfileIcon user={user} />
+      <form
+        className="flex bg-secondary rounded-lg ml-3 flex-1"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="px-3 bg-secondary rounded-lg w-full"
+          type="text"
+          placeholder="Add a comment..."
+          value={formData}
+          onChange={handleInput}
+        />
+        <button className="hover:bg-hover rounded-lg px-1">
+          <img src={sendButton} alt="Send" />
+        </button>
+      </form>
+    </div>
+  );
 };
 
 CreateComment.propTypes = {
-	postId: PropTypes.number,
-	getComments: PropTypes.func,
+  postId: PropTypes.number,
+  getComments: PropTypes.func,
 };

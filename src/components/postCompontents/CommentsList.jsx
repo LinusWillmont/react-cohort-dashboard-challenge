@@ -43,7 +43,10 @@ export const CommentsList = ({ postId }) => {
       ) : (
         <>
           {previewView ? (
-            <button onClick={stopPreviewView} className="text-grey w-fit">
+            <button
+              onClick={stopPreviewView}
+              className="hover:bg-hover text-gray w-fit bg-bodyBackground rounded-md px-1"
+            >
               See previous comments
             </button>
           ) : null}
